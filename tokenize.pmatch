@@ -1,0 +1,6 @@
+Define omorfi @bin"morphology.tokenize.hfst";
+Define nonword Whitespace | [Punct - [%-|%_|%:] ] | % S;
+Define nw [\nonword]+;
+Define word LC([nonword | #]) [nw|Ins(omorfi)] RC([nonword | #]);
+Define token word | Punct;
+Define TOP token EndTag(token) 0:"\n";
