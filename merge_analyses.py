@@ -71,6 +71,7 @@ def noun_lemma_found(lemma_prefix, lemmas):
 wf = ''
 analyses = set()
 lemma_dict = defaultdict(lambda : set())
+compound_lemma_dict = {}
 lex_dict = defaultdict(lambda : '')
 lemma_component_counts = defaultdict(lambda : 0)
 
@@ -97,7 +98,7 @@ for line in stdin:
                     not 'Prop' in label):
                     if noun_lemma_found(lemma[:-5], lemma_dict[lemma]):
                         continue
-                    lemma_suffix = lemma.split('#')[-1]
+                    lemma_suffix = compound_lemma_dict[lemma].split('#')[-1]
                     if not lemma_suffix in ella_lemmas:
                         new_lemma = lemma[:-5] + 'telu'
                         if lemma[-1] == 'ä':
@@ -139,6 +140,7 @@ for line in stdin:
 
         analyses = set()
         lemma_dict = defaultdict(lambda : set())
+        compound_lemma_dict = {}
         lex_dict = defaultdict(lambda : '')
         lemma_component_counts = defaultdict(lambda : 0)
     else:
@@ -158,7 +160,11 @@ for line in stdin:
                 # Remove duplicate dashes occurring some numeral
                 # forms.
                 lemma = lemma.replace('--','-')
-                
+
+                # Remove compound markers.
+                compound_lemma_dict[lemma.replace('#','')] = lemma
+                lemma = lemma.replace('#','')
+
                 if not 'Prop' in sub_tags:
                     lemma = lemma.lower()
 

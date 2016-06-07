@@ -20,4 +20,5 @@ sed 's/"<<<s>>>"/"<<s>>"/'                                                 |
 grep -v "<s> Sent noabc"                                                   |
 $DIR/select_lemma.py $DIR/lemma_list                                       |
 $DIR/replace_analyses.py                                                   |
-$DIR/sort_cohorts.py
+$DIR/sort_cohorts.py                                                       |
+$DIR/analyze_missing_compounds.py $DIR/morphology.ftb1.ol
