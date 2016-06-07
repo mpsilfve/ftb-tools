@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
 
-from sys import stdin
+from sys import stdin, stderr
 from collections import defaultdict
-from re import sub
+from re import sub, match
 
 def get_word_shape(wf):
     wf = wf.replace('-','').replace('‐','')
@@ -55,6 +55,18 @@ for line in stdin:
                 if label in lex_dict:
                     if not ((label, lemma) in lex_dict):
                         continue
+
+                # Filter out the incorrect verb lemma for some
+                # nouns. E.g. "työskentelyni" get two lemmas
+                # "työskentely" and "työseknnellä" with the same
+                # label. "työseknnellä" is always incorrect.
+                if match('.*ell[aä]', lemma) and 'N ' in label:
+                    correct_lemma_candidate = lemma[:-5] + 'telu'
+                    if lemma[-1] == 'ä':
+                        correct_lemma_candidate = lemma[:-5] + 'tely'
+                    if correct_lemma_candidate in lemma_dict[label]:
+                        continue
+
                 lem = '"' + lemma + '"'
 
                 if wf.find('-') == -1:

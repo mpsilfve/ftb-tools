@@ -3,6 +3,15 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 $DIR/ftb-tokenize                                                          |
+sed 's/^jotte\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/jotta\ne\1<>/'                |
+sed 's/^jolle\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/jos\ne\1<>/'                  |
+sed 's/^vaikke\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/vaikka\ne\1<>/'              |
+sed 's/^mikse\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/miksi\ne\1<>/'                |
+sed 's/^mutte\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/mutta\ne\1<>/'                |
+sed 's/^ette\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/että\ne\1<>/'                  |
+sed 's/^elle\(i\|n\|t\|mme\|tte\|iv[aä]t\)$/jos\ne\1<>/'                   |
+sed 's/^eivat<>$/eivät/'                                                   |
+sed 's/<>$//'                                                              |
 sed 's/^$/<<s>>/'                                                          | 
 $DIR/hfst-optimized-lookup --time-cutoff .1 -n 25 $DIR/morphology.ftb1.ol  |
 sed 's/<<s>>	+?/&\n/'                                                   |
