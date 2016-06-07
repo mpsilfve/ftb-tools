@@ -2,9 +2,12 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-grep -v "^[[:space:]]*$"                          |
-sed 's/$/ sentenceends\n/'                        |
-hfst-proc2 -t .1 $DIR/tokenize.pmatch.hfst        |
-grep -v "^$"                                      |
-grep -v "^[|]$"                                   |
-sed 's/sentenceends//' 
+grep -v "^[[:space:]]*$"                                      |
+sed 's/\([0-9]\)[.]$/\1 ./'                                   |
+sed 's/\([0-9]\)[.]  *\([A-ZÅÄÖ]\)/\1 . \2/'                  |
+sed 's/$/ sentenceends\n/'                                    |
+hfst-proc2 -t .1 $DIR/tokenize.pmatch.hfst                    |
+grep -v "^$"                                                  |
+grep -v "^[|]$"                                               |
+sed 's/sentenceends//'                                        
+
