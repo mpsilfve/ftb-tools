@@ -4,6 +4,25 @@ from sys import stdin, stderr
 from collections import defaultdict
 from re import sub, match
 
+ella_lemmas = set(["rönsytiarella",
+                   "tiarella",
+                   "tarantella",
+                   "puuhella",
+                   "paella",
+                   "pasteurella",
+                   "salmonella",
+                   "sähköhella",
+                   "fortunella",
+                   "hella",
+                   "kolumella",
+                   "kaasuhella",
+                   "kanella",
+                   "lavantautisalmonella",
+                   "chlorella",
+                   "mitella",
+                   "mortadella",
+                   "mozzarella"])
+
 def get_word_shape(wf):
     wf = wf.replace('-','').replace('‐','')
 
@@ -36,6 +55,19 @@ def fix(tag):
 
     return tag
 
+def noun_lemma_found(lemma_prefix, lemmas):
+    correct_lemma_candidate = lemma_prefix + 'telu'
+    if lemma[-1] == 'ä':
+        correct_lemma_candidate = lemma_prefix + 'tely'
+    if correct_lemma_candidate in lemmas:
+        return 1
+    correct_lemma_candidate = lemma_prefix + 'ttelu'
+    if lemma[-1] == 'ä':
+        correct_lemma_candidate = lemma_prefix + 'ttely'
+    if correct_lemma_candidate in lemmas:
+        return 1
+    return 0
+
 wf = ''
 analyses = set()
 lemma_dict = defaultdict(lambda : set())
@@ -58,16 +90,22 @@ for line in stdin:
 
                 # Filter out the incorrect verb lemma for some
                 # nouns. E.g. "työskentelyni" get two lemmas
-                # "työskentely" and "työseknnellä" with the same
+                # "työskentely" and "työskennellä" with the same
                 # label. "työseknnellä" is always incorrect.
-                if match('.*ell[aä]', lemma) and 'N ' in label:
-                    correct_lemma_candidate = lemma[:-5] + 'telu'
-                    if lemma[-1] == 'ä':
-                        correct_lemma_candidate = lemma[:-5] + 'tely'
-                    if correct_lemma_candidate in lemma_dict[label]:
+                if (match('.*ell[aä]', lemma) and 
+                    'N ' in label and 
+                    not 'Prop' in label):
+                    if noun_lemma_found(lemma[:-5], lemma_dict[lemma]):
                         continue
+                    lemma_suffix = lemma.split('#')[-1]
+                    if not lemma_suffix in ella_lemmas:
+                        new_lemma = lemma[:-5] + 'telu'
+                        if lemma[-1] == 'ä':
+                            new_lemma = lemma[:-5] + 'tely'
+                        lemma_component_counts[new_lemma] = lemma_component_counts[lemma]
+                        lemma = new_lemma
 
-                lem = '"' + lemma + '"'
+                lem = '"' + lemma.replace('#','') + '"'
 
                 if wf.find('-') == -1:
                     lem = lem.replace('-','')
@@ -117,9 +155,6 @@ for line in stdin:
             if lemma != '#':
                 component_count = lemma.count('#') + 1
  
-                # Remove lemma segment boundaries
-                lemma = lemma.replace('#','')
-                
                 # Remove duplicate dashes occurring some numeral
                 # forms.
                 lemma = lemma.replace('--','-')
