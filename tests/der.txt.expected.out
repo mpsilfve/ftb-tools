@@ -1,0 +1,16 @@
+
+"<juonitteluista>"
+	"juonittelu" N Pl Ela abc #1
+"<näyttelyitä>"
+	"näyttely" N Pl Par abc #1
+	"näyttelyitä" N Sg Nom abc #2
+"<työskentelynsä>"
+	"työskentely" N Pl Nom Px3 abc #1
+	"työskentely" N Sg Gen Px3 abc #1
+	"työskentely" N Sg Nom Px3 abc #1
+"<syytteleminen>"
+	"syytteleminen" N Lex_Minen Sg Nom abc #1
+"<paella>"
+	"paella" N Sg Nom abc #1
+"<salmonella>"
+	"salmonella" N Sg Nom abc #1

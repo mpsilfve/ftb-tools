@@ -1,0 +1,19 @@
+
+"<Kokokokkkk>"
+	Missing Abc
+"<kokookokook>"
+	Missing abc
+"<KOKOKOKKKOK>"
+	Missing ABC
+"<kokokokkkok-koira>"
+	 "kokokokkkok-koira" N Sg Nom abc Heur #2
+"<kokokkoko-koiraansa>"
+	 "kokokkoko-koira" N Sg Ill Px3 abc Heur #2
+	 "kokokkoko-koira" N Sg Par Px3 abc Heur #2
+	 "kokokkoko-koiras" N Pl Nom Px3 abc Heur #2
+	 "kokokkoko-koiras" N Sg Gen Px3 abc Heur #2
+	 "kokokkoko-koiras" N Sg Nom Px3 abc Heur #2
+"<1909-1910>"
+	 "1909-1910" Num Card aBc Heur #2
+"<190:122:1>"
+	 "190:122:1" Num Card noabc Heur #3

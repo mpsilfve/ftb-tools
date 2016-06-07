@@ -1,0 +1,21 @@
+
+"<jotta>"
+	"joka" Pron Rel Sg Abe abc #1
+	"jotta" CS abc #1
+"<emme>"
+	"ei" V Neg Act Pl1 abc #1
+"<että>"
+	"että" CC abc #1
+	"että" CS abc #1
+"<emme>"
+	"ei" V Neg Act Pl1 abc #1
+"<jos>"
+	"jos" CS abc #1
+"<eivät>"
+	"ei" V Neg Act Pl3 abc #1
+"<vaikka>"
+	"vaikka" Adv abc #1
+	"vaikka" CC abc #1
+	"vaikka" CS abc #1
+"<eivät>"
+	"ei" V Neg Act Pl3 abc #1

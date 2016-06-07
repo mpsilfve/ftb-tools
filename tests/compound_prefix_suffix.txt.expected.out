@@ -1,0 +1,13 @@
+
+"<etu->"
+	Trunc Prefix abc #1
+"<ja>"
+	"ja" Adv abc #1
+	"ja" CC abc #1
+"<takapuoli>"
+	"takapuoli" N Sg Nom abc #1
+"<tai>"
+	"tai" CC abc #1
+	"tai" N Sg Nom abc #1
+"<-kolmannes>"
+	"kolmannes" N Sg Nom Suffix abc #1

@@ -1,0 +1,20 @@
+
+"<Vuosi>"
+	"Vuo" N Prop Pl Nom PxSg2 Abc #1
+	"Vuo" N Prop Sg Gen PxSg2 Abc #1
+	"Vuo" N Prop Sg Nom PxSg2 Abc #1
+	"vuo" N Pl Nom PxSg2 Abc #1
+	"vuo" N Sg Gen PxSg2 Abc #1
+	"vuo" N Sg Nom PxSg2 Abc #1
+	"vuosi" N Sg Nom Abc #1
+	"vuotaa" V Act Ind Past Sg3 Abc #1
+"<1919>"
+	"1919" Num Card noabc
+"<.>"
+	"." Pun noabc #1
+"<Se>"
+	"se" Pron Dem Sg Nom Abc #1
+"<2.>"
+	"2." Num Ord noabc
+"<luokka>"
+	"luokka" N Sg Nom abc #1
