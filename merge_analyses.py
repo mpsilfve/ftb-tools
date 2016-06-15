@@ -55,7 +55,7 @@ def fix(tag):
 
     return tag
 
-def noun_lemma_found(lemma_prefix, lemmas):
+def noun_lemma_found(lemma_prefix, lemmas, lemma):
     correct_lemma_candidate = lemma_prefix + 'telu'
     if lemma[-1] == 'ä':
         correct_lemma_candidate = lemma_prefix + 'tely'
@@ -96,7 +96,7 @@ for line in stdin:
                 if (match('.*ell[aä]', lemma) and 
                     'N ' in label and 
                     not 'Prop' in label):
-                    if noun_lemma_found(lemma[:-5], lemma_dict[lemma]):
+                    if noun_lemma_found(lemma[:-5], lemma_dict[label], lemma):
                         continue
                     lemma_suffix = compound_lemma_dict[lemma].split('#')[-1]
                     if not lemma_suffix in ella_lemmas:
