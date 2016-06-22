@@ -1,6 +1,6 @@
 
 "<etu->"
-	Trunc Prefix abc #1
+	"etu" Trunc Prefix abc #1
 "<ja>"
 	"ja" Adv abc #1
 	"ja" CC abc #1
@@ -11,3 +11,9 @@
 	"tai" N Sg Nom abc #1
 "<-kolmannes>"
 	"kolmannes" N Sg Nom Suffix abc #1
+"<->"
+	"-" Pun noabc #1
+"<->"
+	"-" Pun noabc #1
+"<kissa>"
+	"kissa" N Sg Nom abc #1

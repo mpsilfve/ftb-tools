@@ -48,11 +48,12 @@ def replace_and_print_cohort(wf, analyses):
         return
     elif wf in replacements:
         analyses = replacements[wf]
-    elif match('.*-$', wf):    
+    elif match('.+-$', wf):    
         info_tags = analyses[0].split(' ')[-2:]
         info_str = ' '.join(info_tags) 
-        analyses = [("\tTrunc Prefix %s") % info_str]
-    elif match('^-.*', wf):
+        lemma = wf[:-1]
+        analyses = [('\t"%s" Trunc Prefix %s') % (lemma, info_str)]
+    elif match('^-.+', wf):
         new_analyses = []
         for analysis in analyses:
             morph_tags = analysis.split(' ')[:-2] 
