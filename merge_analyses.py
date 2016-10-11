@@ -29,15 +29,14 @@ def get_word_shape(wf):
     if len(wf) == 0:
         return 'noabc'
 
-    if wf.islower():
-        return 'abc'
-    if wf.isupper():
-        return 'ABC'
-    if wf[0].isupper():
-        return 'Abc'
-    if wf.isalnum():
+    if wf.isalpha():
+        if wf.islower():
+            return 'abc'
+        if wf.isupper():
+            return 'ABC'
+        if wf[0].isupper():
+            return 'Abc'
         return 'aBc'
-    
     return 'noabc'
 
 def fix(tag):

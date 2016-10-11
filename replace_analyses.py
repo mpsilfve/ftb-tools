@@ -37,7 +37,13 @@ replacements = {
               '\t"niin" Adv Abc #1',
               '\t"niin" Adv Dem Abc #1',
               '\t"niin" CCM Abc #1'],
-    "ettäs" : ['\t"ettäs" Adv abc #1']
+    "ettäs" : ['\t"ettäs" Adv abc #1'],
+    "paitsi" : ['\t"paitsi" Adp abc #1',
+                '\t"paitsi" Adv abc #1',
+                '\t"paitsi" CCM abc #1'],
+    "myös" : ['\t"myödä" V Act Imprt Sg2 S abc #1',
+              '\t"myös" Adv abc #1',
+              '\t"myös" CC abc #1']
     }
 
 def get_wf(line):
@@ -48,6 +54,8 @@ def replace_and_print_cohort(wf, analyses):
         return
     elif wf in replacements:
         analyses = replacements[wf]
+    elif wf.lower() in replacements:
+        analyses = replacements[wf.lower()]
     elif match('.+-$', wf):    
         info_tags = analyses[0].split(' ')[-2:]
         info_str = ' '.join(info_tags) 

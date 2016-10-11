@@ -16,3 +16,11 @@
 	"niin" CCM abc #1
 "<ettäs>"
 	"ettäs" Adv abc #1
+"<paitsi>"
+	"paitsi" Adp abc #1
+	"paitsi" Adv abc #1
+	"paitsi" CCM abc #1
+"<myös>"
+	"myödä" V Act Imprt Sg2 S abc #1
+	"myös" Adv abc #1
+	"myös" CC abc #1

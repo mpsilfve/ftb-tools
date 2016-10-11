@@ -17,3 +17,9 @@
 	"-" Pun noabc #1
 "<kissa>"
 	"kissa" N Sg Nom abc #1
+"<foobarbaz-setä>"
+	 "foobarbaz-setä" N Sg Nom abc Heur #2
+"<Irma-täti>"
+	 "Irma-täti" N Sg Nom Abc Heur #2
+"<shrdlu-setä>"
+	 "shrdlu-setä" N Sg Nom abc Heur #2
