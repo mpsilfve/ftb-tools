@@ -25,7 +25,7 @@ def display_cohort(wf, analyses, omorfi):
                 labels = analysis.split(' ')
                 tags = labels[1:] + [info_tag, 
                                      'Heur', 
-                                     '#%u' % len(compound_parts)]
+                                     '#%u' % (len(compound_parts) + labels[0].count('#'))]
                 new_lemma = prefix + labels[0]
                 print ('\t "%s" %s' % (new_lemma, ' '.join(tags)))
         else:
